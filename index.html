@@ -15,132 +15,139 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
 <!-- ===================================================================
-     ▼ ヘッダー（画面上部のメニュー）
-     ・メニュー名を変えるときは > と < の間の日本語だけを書き換える
+     ▼ ヘッダー（画面上部に固定されるロゴとボタン）
      =================================================================== -->
 <header class="header">
-  <div class="container header-inner">
-    <a href="#top" class="logo" aria-label="DF株式会社 トップへ">
-      <span class="logo-mark">DF</span><span class="logo-text">DF株式会社</span>
-    </a>
-    <button class="nav-toggle" aria-label="メニュー" aria-expanded="false" aria-controls="nav">
-      <span></span><span></span><span></span>
+  <a href="#top" class="logo" aria-label="DF株式会社 トップへ">
+    <span class="logo-mark">DF</span><span class="logo-text">DF株式会社</span>
+  </a>
+  <div class="header-actions">
+    <a href="#contact" class="pill pill-dark header-contact">お問い合わせ<span class="arrow" aria-hidden="true">→</span></a>
+    <button class="menu-btn" aria-label="メニューを開く" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span>
     </button>
-    <nav id="nav" class="nav">
-      <a href="#about">私たちについて</a>
-      <a href="#business">事業内容</a>
-      <a href="#profile">代表プロフィール</a>
-      <a href="#company">会社概要</a>
-      <a href="#contact" class="nav-cta">お問い合わせ</a>
-    </nav>
   </div>
 </header>
+
+<!-- ===================================================================
+     ▼ メニュー（右上の「＝」ボタンを押すと開く全画面メニュー）
+     ・英語は <span class="menu-en">、日本語は <span class="menu-ja"> の中を書き換える
+     =================================================================== -->
+<nav id="menu" class="menu" aria-hidden="true">
+  <ul>
+    <li><a href="#about"><span class="menu-en">About</span><span class="menu-ja">私たちについて</span></a></li>
+    <li><a href="#business"><span class="menu-en">Business</span><span class="menu-ja">事業内容</span></a></li>
+    <li><a href="#profile"><span class="menu-en">Profile</span><span class="menu-ja">代表プロフィール</span></a></li>
+    <li><a href="#company"><span class="menu-en">Company</span><span class="menu-ja">会社概要</span></a></li>
+    <li><a href="#contact"><span class="menu-en">Contact</span><span class="menu-ja">お問い合わせ</span></a></li>
+  </ul>
+</nav>
 
 <main id="top">
 
   <!-- ===================================================================
-       ▼ トップ（紺色の大きなエリア）
-       ・hero-en    … 小さな英語（金色）
-       ・hero-title … 大きなキャッチコピー。<br> は改行
-       ・hero-lead  … キャッチコピーの下の説明文
+       ▼ トップ（最初に見える大きなキャッチコピー）
+       ・hero-line … キャッチコピー。1行目と2行目の間に横線が入る
+         ※ 1行は10文字くらいまで（長いとはみ出す）
+         ※ <br class="sp"> はスマホのときだけ改行する印（スマホは1行7文字まで）
+       ・hero-en   … キャッチコピーの下の英語
        =================================================================== -->
   <section class="hero">
-    <div class="container">
-      <p class="hero-en">Different Future</p>
-      <h1 class="hero-title">事業と暮らしの<br>「次の一手」を、<br class="sp">ともに。</h1>
-      <p class="hero-lead">不動産、IT・DX、営業、店舗開発、そして現場のサービスまで。<br>分野をまたいだ知見で、お客様の課題に実務で応えます。</p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">お問い合わせ</a>
-        <a href="#business" class="btn btn-ghost">事業内容を見る</a>
+    <h1 class="hero-title">
+      <span class="hero-line">事業と暮らしの</span>
+      <span class="hero-rule" aria-hidden="true"></span>
+      <span class="hero-line">次の一手を、<br class="sp">ともに。</span>
+    </h1>
+    <p class="hero-en">Next move, together.</p>
+  </section>
+
+  <!-- ▼ 青い帯のかざり（さわらない） -->
+  <div class="ribbon" aria-hidden="true">
+    <svg viewBox="0 0 1440 500" preserveAspectRatio="none"><path d="M-20 300C260 380 600 330 820 170 980 55 1190 -10 1460 30V230C1230 180 1090 230 960 320 760 460 330 500 -20 440Z"/></svg>
+  </div>
+
+  <!-- ===================================================================
+       ▼ 私たちについて
+       ・about-copy … 左側の大きな見出し。<br> は改行
+       ・右側の文章は <p>〜</p> がひとつの段落。<br> で改行
+       =================================================================== -->
+  <section id="about" class="section about">
+    <div class="container about-grid">
+      <div class="reveal">
+        <p class="label">About</p>
+        <h2 class="about-copy">分野をまたいで、<br>実務で応える。</h2>
+      </div>
+      <div class="about-text reveal">
+        <p>DF株式会社は、<br>東京都世田谷区を拠点とする会社です。</p>
+        <p>資産形成・不動産のご相談から、<br>生成AIを活用した業務改善、営業代行、<br>コンテナ店舗の開発、エアコン清掃まで。<br>お客様の「困った」に幅広く対応しています。</p>
+        <p>ひとつの専門分野に閉じず、<br>必要な人や情報をつなぎながら、<br>現場で使える形で解決策をご提案します。</p>
       </div>
     </div>
   </section>
 
   <!-- ===================================================================
-       ▼ 私たちについて
-       ・<p>〜</p> がひとつの段落。段落を増やすときは <p>〜</p> の行をコピーして追加
-       =================================================================== -->
-  <section id="about" class="section">
-    <div class="container narrow">
-      <p class="section-en">About</p>
-      <h2 class="section-title">私たちについて</h2>
-      <p>DF株式会社は、東京都世田谷区を拠点とする会社です。資産形成・不動産のご相談から、生成AIを活用した業務改善、営業代行、コンテナ店舗の開発、エアコン清掃まで、お客様の「困った」に幅広く対応しています。</p>
-      <p>ひとつの専門分野に閉じず、必要な人や情報をつなぎながら、現場で使える形で解決策をご提案します。</p>
-    </div>
-  </section>
-
-  <!-- ===================================================================
-       ▼ 事業内容（カード6枚）
-       ・1枚 = <article class="card"> 〜 </article> のかたまり
-       ・<h3>〜</h3> がカードの見出し、<p>〜</p> が説明文
-       ・カードを消すときは <article 〜 </article> をまるごと削除
-       ・カードを増やすときは <article 〜 </article> をまるごとコピーして文章を書き換え
-       ・<svg 〜 </svg> はアイコンの絵なので、さわらない
+       ▼ 事業内容（黒い背景のエリア。事業が6つ並ぶ）
+       ・1つ = <article class="biz"> 〜 </article> のかたまり
+       ・biz-num が番号、<h3>〜</h3> が見出し、<p>〜</p> が説明文
+       ・消すときは <article 〜 </article> をまるごと削除（番号も振り直す）
+       ・増やすときは <article 〜 </article> をまるごとコピーして書き換え
        ※ 書いてよい内容の注意点は「編集マニュアル.md」の 6. を参照
        =================================================================== -->
-  <section id="business" class="section section-alt">
+  <section id="business" class="section dark">
     <div class="container">
-      <p class="section-en">Business</p>
-      <h2 class="section-title">事業内容</h2>
-      <div class="cards">
+      <div class="heading-row reveal">
+        <h2 class="heading"><span class="heading-en">Business</span><span class="heading-ja">事業内容</span></h2>
+        <p class="heading-lead">不動産、IT・DX、営業、店舗開発、そして現場のサービスまで。<br>6つの事業で、お客様の課題に向き合います。</p>
+      </div>
+      <div class="biz-list">
 
-        <!-- ▼ カード1：資産形成・承継コンサルティング -->
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21H3z"/><path d="M9 21v-6h6v6"/></svg>
-          </div>
-          <h3>資産形成・承継コンサルティング</h3>
+        <!-- ▼ 事業1 -->
+        <article class="biz reveal">
+          <p class="biz-num">01</p>
+          <h3>資産形成・承継<br>コンサルティング</h3>
           <p>ファイナンシャルプランニングの視点から、ライフプランや資金計画、不動産の購入・売却・住み替えのご相談に応じます。信託銀行での資産承継業務と不動産実務の経験をもとに、数字と現場の両面からアドバイスします。</p>
         </article>
 
-        <!-- ▼ カード2：IT・DXコンサルティング -->
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
-          </div>
+        <!-- ▼ 事業2 -->
+        <article class="biz reveal">
+          <p class="biz-num">02</p>
           <h3>IT・DXコンサルティング</h3>
           <p>生成AIの導入研修、業務効率化ツールの選定・開発、IT導入補助金の活用支援。中小企業のIT活用を、計画づくりから定着まで伴走します。</p>
         </article>
 
-        <!-- ▼ カード3：営業代行 -->
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M4 19V9l8-5 8 5v10"/><path d="M4 19h16M9 19v-5h6v5"/><path d="M12 4v2"/></svg>
-          </div>
+        <!-- ▼ 事業3 -->
+        <article class="biz reveal">
+          <p class="biz-num">03</p>
           <h3>営業代行</h3>
           <p>新規開拓から商談、クロージングまで。商材や業界に合わせた営業戦略の立案と実行を代行し、売上づくりを支えます。</p>
         </article>
 
-        <!-- ▼ カード4：コンテナ店舗の開発・運営
-             ・Instagramのリンク先は href="〜" の中、表示される文字は > と </a> の間 -->
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><rect x="2" y="8" width="20" height="11" rx="1"/><path d="M6 8v11M10 8v11M14 8v11M18 8v11"/><path d="M5 8l2-4h10l2 4"/></svg>
-          </div>
+        <!-- ▼ 事業4
+             ・Instagramのリンク先は href="〜" の中、ボタンの文字は > と <span の間 -->
+        <article class="biz reveal">
+          <p class="biz-num">04</p>
           <h3>コンテナ店舗の開発・運営</h3>
-          <p>コンテナを活用した店舗の企画・開発・運営。初期費用を抑えた出店と、場所の魅力を活かした空間づくりをご提案します。<a class="card-link" href="https://www.instagram.com/saltandfire_onjuku/" target="_blank" rel="noopener">SALT&amp;FIREの Instagram を見る →</a></p>
+          <p>コンテナを活用した店舗の企画・開発・運営。初期費用を抑えた出店と、場所の魅力を活かした空間づくりをご提案します。</p>
+          <a class="pill pill-line" href="https://www.instagram.com/saltandfire_onjuku/" target="_blank" rel="noopener">SALT&amp;FIRE の Instagram<span class="arrow" aria-hidden="true">→</span></a>
         </article>
 
-        <!-- ▼ カード5：フリーランス独立支援・案件紹介 -->
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 14.3A6 6 0 0 1 22 20"/></svg>
-          </div>
-          <h3>フリーランス独立支援・案件紹介</h3>
+        <!-- ▼ 事業5 -->
+        <article class="biz reveal">
+          <p class="biz-num">05</p>
+          <h3>フリーランス独立支援・<br>案件紹介</h3>
           <p>会社員からの独立を考える方へ、開業準備や営業の進め方をサポート。独立後は、ネットワークを活かした案件のご紹介も行います。</p>
         </article>
 
-        <!-- ▼ カード6：エアコン清掃 -->
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="8" rx="2"/><path d="M7 10h10M8 17l-1 2M12 17v2M16 17l1 2"/></svg>
-          </div>
+        <!-- ▼ 事業6 -->
+        <article class="biz reveal">
+          <p class="biz-num">06</p>
           <h3>エアコン清掃</h3>
           <p>家庭用・業務用エアコンの分解洗浄。店舗やオフィスの空調も対応し、においや電気代の悩みを解消します。</p>
         </article>
@@ -155,28 +162,32 @@
        ・経歴は <li><span>年</span>内容</li> で1行。行を増やすときは1行まるごとコピー
        ・資格・好きなことは <dd>〜</dd> の中を書き換え
        =================================================================== -->
-  <section id="profile" class="section section-alt">
-    <div class="container narrow">
-      <p class="section-en">Profile</p>
-      <h2 class="section-title">代表プロフィール</h2>
-      <div class="rep">
+  <section id="profile" class="section">
+    <div class="container">
+      <div class="heading-row reveal">
+        <h2 class="heading"><span class="heading-en">Profile</span><span class="heading-ja">代表プロフィール</span></h2>
+      </div>
+      <div class="rep reveal">
         <div class="rep-head">
           <p class="rep-role">代表取締役</p>
-          <p class="rep-name">橋本 大資<span>Daisuke Hashimoto</span></p>
+          <p class="rep-name">橋本 大資</p>
+          <p class="rep-name-en">Daisuke Hashimoto</p>
         </div>
-        <p class="rep-message">信託銀行で、お客様の大切な資産や想いを次の世代へつなぐ仕事に携わってきました。独立後は、事業の立ち上げや不動産の実務、飲食店の開業まで、現場で手を動かしながら経験を重ねています。肩書きや分野にとらわれず、目の前の方にとって本当に役立つことを一緒に考える。そんな会社でありたいと思っています。</p>
-        <!-- ▼ 経歴 -->
-        <ul class="rep-career">
-          <li><span>2016年</span>青山学院大学を卒業後、三井住友信託銀行に入社。約7年間、資産管理・資産承継のコンサルティングに従事し、信託商品のご提案、遺言執行・遺産整理、不動産売却などを担当</li>
-          <li><span>2023年</span>独立。フリーランスエンジニア向けエージェント事業の立ち上げに参画し、経営戦略から営業までを担う。並行して不動産の売買・賃貸の実務に携わる</li>
-          <li><span>2024年</span>DF株式会社を設立</li>
-          <li><span>2026年</span>千葉県御宿町に海沿いの飲食店「SALT&amp;FIRE」をオープン</li>
-        </ul>
-        <!-- ▼ 資格・好きなこと -->
-        <dl class="rep-meta">
-          <div><dt>資格</dt><dd>宅地建物取引士／2級ファイナンシャル・プランニング技能士</dd></div>
-          <div><dt>好きなこと</dt><dd>野球（小学3年生から大学まで）、ゴルフ、サーフィン、格闘技観戦</dd></div>
-        </dl>
+        <div class="rep-body">
+          <p class="rep-message">信託銀行で、お客様の大切な資産や想いを次の世代へつなぐ仕事に携わってきました。独立後は、事業の立ち上げや不動産の実務、飲食店の開業まで、現場で手を動かしながら経験を重ねています。肩書きや分野にとらわれず、目の前の方にとって本当に役立つことを一緒に考える。そんな会社でありたいと思っています。</p>
+          <!-- ▼ 経歴 -->
+          <ul class="rep-career">
+            <li><span>2016</span>青山学院大学を卒業後、三井住友信託銀行に入社。約7年間、資産管理・資産承継のコンサルティングに従事し、信託商品のご提案、遺言執行・遺産整理、不動産売却などを担当</li>
+            <li><span>2023</span>独立。フリーランスエンジニア向けエージェント事業の立ち上げに参画し、経営戦略から営業までを担う。並行して不動産の売買・賃貸の実務に携わる</li>
+            <li><span>2024</span>DF株式会社を設立</li>
+            <li><span>2026</span>千葉県御宿町に海沿いの飲食店「SALT&amp;FIRE」をオープン</li>
+          </ul>
+          <!-- ▼ 資格・好きなこと -->
+          <dl class="rep-meta">
+            <div><dt>資格</dt><dd>宅地建物取引士／2級ファイナンシャル・プランニング技能士</dd></div>
+            <div><dt>好きなこと</dt><dd>野球（小学3年生から大学まで）、ゴルフ、サーフィン、格闘技観戦</dd></div>
+          </dl>
+        </div>
       </div>
     </div>
   </section>
@@ -186,11 +197,12 @@
        ・1行 = <div><dt>項目名</dt><dd>内容</dd></div>
        ・項目を増やすときは1行まるごとコピー（例：設立、電話番号）
        =================================================================== -->
-  <section id="company" class="section">
-    <div class="container narrow">
-      <p class="section-en">Company</p>
-      <h2 class="section-title">会社概要</h2>
-      <dl class="profile">
+  <section id="company" class="section company">
+    <div class="container company-grid">
+      <div class="reveal">
+        <h2 class="heading"><span class="heading-en">Company</span><span class="heading-ja">会社概要</span></h2>
+      </div>
+      <dl class="profile reveal">
         <div><dt>会社名</dt><dd>DF株式会社</dd></div>
         <div><dt>代表者</dt><dd>代表取締役　橋本 大資</dd></div>
         <div><dt>所在地</dt><dd>東京都世田谷区</dd></div>
@@ -211,15 +223,19 @@
   </section>
 
   <!-- ===================================================================
-       ▼ お問い合わせ
-       ・メールアドレスを変えるときは mailto:〜 と ボタンの文字 の2か所を両方変える
+       ▼ お問い合わせ（白い大きなカード。カード全体がメールのリンク）
+       ・メールアドレスを変えるときは mailto:〜 と contact-mail の文字 の2か所を両方変える
        =================================================================== -->
   <section id="contact" class="section contact">
-    <div class="container narrow center">
-      <p class="section-en">Contact</p>
-      <h2 class="section-title">お問い合わせ</h2>
-      <p>ご相談・ご依頼は、下記メールアドレスよりお気軽にご連絡ください。<br>内容を確認のうえ、担当者よりご返信いたします。</p>
-      <a href="mailto:info@df-inc.jp" class="btn btn-primary btn-lg">info@df-inc.jp にメールする</a>
+    <div class="container">
+      <a href="mailto:info@df-inc.jp" class="contact-card reveal">
+        <div>
+          <h2 class="heading"><span class="heading-en">Contact</span><span class="heading-ja">お問い合わせ</span></h2>
+          <p class="contact-text">ご相談・ご依頼は、メールにてお気軽にご連絡ください。<br>内容を確認のうえ、担当者よりご返信いたします。</p>
+          <p class="contact-mail">info@df-inc.jp</p>
+        </div>
+        <span class="contact-arrow" aria-hidden="true">→</span>
+      </a>
     </div>
   </section>
 
@@ -228,22 +244,44 @@
 <!-- ▼ フッター（画面いちばん下）。年は自動で今年になる -->
 <footer class="footer">
   <div class="container footer-inner">
-    <span class="logo-text">DF株式会社</span>
-    <small>&copy; <span id="year">2026</span> DF Inc.</small>
+    <div>
+      <p class="footer-logo">DF株式会社</p>
+      <p class="footer-addr">東京都世田谷区</p>
+    </div>
+    <ul class="footer-nav">
+      <li><a href="#about">About</a></li>
+      <li><a href="#business">Business</a></li>
+      <li><a href="#profile">Profile</a></li>
+      <li><a href="#company">Company</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </div>
+  <div class="container"><small class="copyright">&copy; <span id="year">2026</span> DF Inc.</small></div>
 </footer>
 
-<!-- ===== ここから下はメニューを動かすためのプログラム。さわらない ===== -->
+<!-- ===== ここから下はメニューや動きのためのプログラム。さわらない ===== -->
 <script>
-  const t = document.querySelector('.nav-toggle'), n = document.getElementById('nav');
-  t.addEventListener('click', () => {
-    const open = n.classList.toggle('open');
-    t.setAttribute('aria-expanded', open);
-  });
-  n.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    n.classList.remove('open'); t.setAttribute('aria-expanded', false);
-  }));
+  const btn = document.querySelector('.menu-btn'), menu = document.getElementById('menu');
+  const setMenu = open => {
+    document.body.classList.toggle('menu-open', open);
+    btn.setAttribute('aria-expanded', open);
+    btn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+    menu.setAttribute('aria-hidden', !open);
+  };
+  btn.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  const targets = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { rootMargin: '0px 0px -8% 0px' });
+    targets.forEach(t => io.observe(t));
+  } else {
+    targets.forEach(t => t.classList.add('in'));
+  }
 </script>
 </body>
 </html>
